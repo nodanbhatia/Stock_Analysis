@@ -5,13 +5,13 @@ def add_analysis(df: pd.DataFrame) -> pd.DataFrame:
     """Calculates simple technical indicators."""
     df = df.copy()
     
-    # 20-day Simple Moving Average
+   
     df["SMA_20"] = df["close"].rolling(window=20).mean()
     
-    # 50-day Simple Moving Average
+    
     df["SMA_50"] = df["close"].rolling(window=50).mean()
     
-    # Percentage Daily Return
+   
     df["Daily Return (%)"] = df["close"].pct_change() * 100
 
     return df
