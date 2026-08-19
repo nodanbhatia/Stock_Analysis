@@ -21,7 +21,7 @@ def get_stock_data(symbol: str) -> pd.DataFrame:
     response.raise_for_status()
     data = response.json()
 
-    # Check for API errors and limits
+   
     if "Error Message" in data:
         raise ValueError(data["Error Message"])
     if "Note" in data:
@@ -31,16 +31,16 @@ def get_stock_data(symbol: str) -> pd.DataFrame:
     if "Time Series (Daily)" not in data:
         raise ValueError(f"Unexpected API response: {data}")
 
-    # Convert dictionary to DataFrame
+    
     df = pd.DataFrame.from_dict(data["Time Series (Daily)"], orient="index")
 
-    # Rename columns to standard names
+
     df.columns = ["open", "high", "low", "close", "volume"]
 
-    # Convert strings to numeric types
+  
     df = df.astype(float)
 
-    # Format dates
+
     df.index = pd.to_datetime(df.index)
     df = df.sort_index()
 
