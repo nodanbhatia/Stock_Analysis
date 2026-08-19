@@ -4,16 +4,14 @@ from analysis import add_analysis, get_statistics
 
 st.set_page_config(page_title="Stock Dashboard", layout="wide")
 
-st.title("📈 STOCK DASHBOARD")
+st.title(" STOCK DASHBOARD")
 st.subheader("Analyze a Stock in Real Time")
 
 symbol = st.selectbox("Select Stock", ["IBM", "AAPL", "MSFT", "GOOGL"])
 
-# Initialize session state so data persists across reruns
 if "stock_df" not in st.session_state:
     st.session_state.stock_df = None
 
-# Fetch data when button is clicked
 if st.button("Get Stock Data"):
     with st.spinner("Fetching data from Alpha Vantage..."):
         try:
@@ -23,7 +21,6 @@ if st.button("Get Stock Data"):
             st.error(f"API Error: {e}")
             st.session_state.stock_df = None
 
-# Render output if data exists in session state
 if st.session_state.stock_df is not None:
     df = st.session_state.stock_df
 
