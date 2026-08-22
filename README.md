@@ -2,6 +2,8 @@
 
 A Python-based Stock Market Data Analysis project that uses a financial API to retrieve and analyze stock market data across different time periods, including 1 week, 1 month, 6 months, 1 year, and custom date ranges.
 
+https://stock-market-api01.streamlit.app/
+
 🚀 Project Overview
 
 This project fetches real-time and historical stock market information through an API and provides an easy way to analyze stock price movements over different periods. Users can explore Open, High, Low, Close, Volume, and price trends to better understand the performance of a selected stock.
